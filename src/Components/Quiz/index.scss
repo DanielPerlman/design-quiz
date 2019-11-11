@@ -1,0 +1,22 @@
+.quiz {
+  .guide-container {
+    height: 40vh;
+    width: 100vw;
+    text-align: left;
+    padding: 20px 6vw;
+    vertical-align: bottom;
+    display: table-cell;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.08), 0 10px 10px rgba(0,0,0,0.01);
+
+    .header {
+      font-size: 28px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .sub-header {
+      font-size: 21px;
+      color: #333;
+    }
+  }
+}

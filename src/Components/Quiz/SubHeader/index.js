@@ -1,9 +1,10 @@
 import React from 'react';
 import './index.scss';
 
-function SubHeader() {
+function SubHeader(props) {
   return (
     <div className="sub-header">
+      { props.children }
     </div>
   );
 }

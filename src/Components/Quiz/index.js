@@ -3,23 +3,43 @@ import './index.scss';
 import Header from './Header';
 import SubHeader from './SubHeader';
 import OptionList from './OptionList';
+import QuizData from './QuizData';
 
 class Quiz extends React.Component {
   constructor(props) {
     super(props);
+    
     this.state = {
-      currentStep: 0
+      currentStep: "start",
+      currentStepData: QuizData["steps"]["start"]
     };
   }
 
-  render() {
-    let { currentStep } = this.state;
+  updateStep(nextStep) {
+    this.setState({
+      currentStep: nextStep,
+      currentStepData: QuizData["steps"][nextStep]
+    });
+  }
 
+  selectCallback = (key) => {    
+    let newStepData = this.state.currentStepData;
+    newStepData.images[key].isSelected = !newStepData.images[key].isSelected;
+    this.setState({
+      currentStepData: newStepData
+    })
+  }
+
+  render() {
+    let { currentStep, currentStepData } = this.state;    
+    let { title, secondaryTitle, images } = currentStepData;
     return (
       <div className="quiz">
-        <Header>Hello There</Header>
-        <SubHeader>What's up?</SubHeader>
-        <OptionList step={currentStep}></OptionList>
+        <div className="guide-container">
+          <Header> { title } </Header>
+          <SubHeader> { secondaryTitle } </SubHeader>
+        </div>
+        <OptionList selectCallback={this.selectCallback.bind(this)} stepImages={images}></OptionList>
       </div>
     );
   }

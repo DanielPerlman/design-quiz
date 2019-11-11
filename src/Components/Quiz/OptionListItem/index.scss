@@ -1,0 +1,34 @@
+.option-list-item {
+  margin: 20px 0;
+  position: relative;
+  height: 300px;
+  width: 300px;
+
+  &--selected {
+    img {
+      border: 4px solid #837973;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: rgba($color: #000000, $alpha: 0.2);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
