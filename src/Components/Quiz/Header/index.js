@@ -1,10 +1,10 @@
 import React from 'react';
 import './index.scss';
 
-function Header() {
+function Header(props) {
   return (
     <div className="header">
-      { this.props.children }
+      { props.children }
     </div>
   );
 }

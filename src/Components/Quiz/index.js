@@ -1,18 +1,28 @@
 import React from 'react';
 import './index.scss';
-import { Header } from 'Components/Quiz/Header';
-import { SubHeader } from 'Components/Quiz/SubHeader';
-import { OptionList } from 'Components/Quiz/OptionList';
+import Header from './Header';
+import SubHeader from './SubHeader';
+import OptionList from './OptionList';
 
-function Quiz() {
+class Quiz extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentStep: 0
+    };
+  }
 
-  return (
-    <div className="quiz">
-      <Header>Hello There</Header>
-      <SubHeader>What's up?</SubHeader>
-      <OptionList step={currentStep}></OptionList>
-    </div>
-  );
+  render() {
+    let { currentStep } = this.state;
+
+    return (
+      <div className="quiz">
+        <Header>Hello There</Header>
+        <SubHeader>What's up?</SubHeader>
+        <OptionList step={currentStep}></OptionList>
+      </div>
+    );
+  }
 }
 
 export default Quiz;
